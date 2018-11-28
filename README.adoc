@@ -1,0 +1,56 @@
+== HiveMQ HTTP Heartbeat Plugin
+
+This plugin creates an HTTP heartbeat servlet, that can be used to provide an HTTP health-check for an application loadbalancer.
+
+=== How it works
+
+This plugin provides a health-check via HTTP, which means an application loadbalancer is able to detect if a HiveMQ instance is
+offline and the Load Balancer is thus able to remove the HiveMQ node from the load balancing.
+
+=== Installation
+
+1. Copy the jar file `plugins/elasticbeam-plugin-<version>.jar` to your `[HIVEMQ_HOME]/plugins` folder
+2. Copy the `conf/heartbeat.properties` file to your `[HIVEMQ_HOME]/conf` folder
+3. Modify the `heartbeat.properties file for your needs
+4. Done
+
+
+=== Usage
+
+1. Start HiveMQ
+
+
+=== Configuration
+
+The HTTP Heartbeat plugin uses its own configuration file 'heartbeat.properties' which must be placed in HiveMQ's config folder.
+
+==== General Configuration
+
+|===
+| Config name | Required | Description
+
+| heartbeat.port | no | The port on which the heartbeat HTTP service should listen. Default is 9090
+| heartbeat.bindAddress | no | The bind address of the heartbeat HTTP service. Use 0.0.0.0 if you want to listen on all interfaces.
+| heartbeat.path | no | The Path where the heartbeat HTTP service is located. Default ist /heartbeat
+|===
+
+.Example Configuration
+[source]
+----
+heartbeat.port=9090
+heartbeat.bindAddress=0.0.0.0
+heartbeat.path=/heartbeat
+----
+
+IMPORTANT: By Default the Heartbeat is available at http://MY-IP:PORT/servlet/heartbeat
+
+
+=== Metrics
+
+This plugin exposes custom metrics to HiveMQs holistic metric registry:
+
+|===
+| Metric name | Type | Description
+
+| heartbeat-heartbeat-meter | Meter | A meter that shows the frequency of heartbeat requests
+|===

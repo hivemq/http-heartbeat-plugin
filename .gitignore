@@ -1,0 +1,7 @@
+target
+.idea/libraries
+.idea/workspace.xml
+dependency-reduced-pom.xml
+.DS_Store
+.idea/file.template.settings.xml
+.idea/vcs.xml
