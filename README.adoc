@@ -54,3 +54,11 @@ This plugin exposes custom metrics to HiveMQs holistic metric registry:
 
 | heartbeat-heartbeat-meter | Meter | A meter that shows the frequency of heartbeat requests
 |===
+
+= Contributing
+
+If you want to contribute to HiveMQ Heartbeat Plugin, see the link:CONTRIBUTING.md[contribution guidelines].
+
+= License
+
+HiveMQ Heartbeat Plugin is licensed under the `APACHE LICENSE, VERSION 2.0`. A copy of the license can be found link:LICENSE.txt[here].
